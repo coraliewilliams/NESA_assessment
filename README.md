@@ -49,10 +49,6 @@ The files and instructions for Task 1 are available in the [`task1`](./task1/) f
 
 The files and instructions for Task 2 are available in the [`task2`](./task2/) folder.
 
-## Tests
-
-Data validation and output checks are included directly in the R scripts. The checks are documented alongside the relevant code.
-
 ## Use of AI tools
 
 The [`ai-usage`](./ai-usage/) folder documents the AI tools used, relevant prompts and chat logs, and how generated outputs were reviewed and verified.
