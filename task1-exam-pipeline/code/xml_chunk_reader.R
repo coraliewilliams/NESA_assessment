@@ -10,7 +10,7 @@
 #'
 #' Assumption: `record_tag` elements do not nest and their text content never
 #' contains the literal substrings "<record_tag " / "<record_tag>" /
-#' "</record_tag>". True for this dataset (checked in PIPELINE.md). This is
+#' "</record_tag>". True for this dataset (checked in README.md). This is
 #' the documented limitation of the approach; a hostile/edge-case file (e.g.
 #' free-text fields containing "</student>") would break it silently.
 #'

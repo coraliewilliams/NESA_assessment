@@ -2,17 +2,13 @@
 # Convert data/exams.xml into output/exams.jsonl and output/exams.parquet.
 #
 # Streams the source in fixed-size chunks of students end to end: memory use
-# is bounded by chunk_size, not file size (see PIPELINE.md for the
+# is bounded by chunk_size, not file size (see README.md for the
 # scalability argument and where this would need to change for true
 # multi-GB/TB input).
 #
 # Usage:
-#   Rscript scripts/run_pipeline.R [--input PATH] [--jsonl-out PATH] \
+#   Rscript code/run_pipeline.R [--input PATH] [--jsonl-out PATH] \
 #     [--parquet-out PATH] [--chunk-size N]
-suppressPackageStartupMessages({
-  library(data.table)
-})
-
 suppressPackageStartupMessages({
   library(data.table)
 })
@@ -20,10 +16,10 @@ suppressPackageStartupMessages({
 # resolve paths relative to the task1-exam-pipeline/ directory regardless of
 # the working directory the script is invoked from
 proj_root <- normalizePath(file.path(dirname(normalizePath(sub("--file=", "", grep("--file=", commandArgs(trailingOnly = FALSE), value = TRUE)))), ".."))
-source(file.path(proj_root, "R", "xml_chunk_reader.R"))
-source(file.path(proj_root, "R", "parse_student.R"))
-source(file.path(proj_root, "R", "write_jsonl.R"))
-source(file.path(proj_root, "R", "write_parquet.R"))
+source(file.path(proj_root, "code", "xml_chunk_reader.R"))
+source(file.path(proj_root, "code", "parse_student.R"))
+source(file.path(proj_root, "code", "write_jsonl.R"))
+source(file.path(proj_root, "code", "write_parquet.R"))
 
 parse_args <- function(args) {
   defaults <- list(

@@ -3,15 +3,15 @@
 #' Each check is a standalone function that either returns invisibly or
 #' aborts via cli::cli_abort with an informative message — never a warning.
 #' All checks re-parse the source XML independently of the pipeline code in
-#' R/, so a bug shared between the pipeline and the check can't hide a
+#' code/, so a bug shared between the pipeline and the check can't hide a
 #' failure. Run interactively or via:
-#'   Rscript R/validate.R [--input PATH] [--jsonl PATH] [--parquet PATH]
+#'   Rscript code/validate.R [--input PATH] [--jsonl PATH] [--parquet PATH]
 suppressPackageStartupMessages({
   library(data.table)
 })
 
 #' Parse the full source XML into a flat exam-grain reference table.
-#' Deliberately independent of R/xml_chunk_reader.R and R/parse_student.R:
+#' Deliberately independent of code/xml_chunk_reader.R and code/parse_student.R:
 #' loads the whole (small, test-scale) file via xml2 in one go, which is fine
 #' for validation even though the pipeline itself must stream at scale.
 reference_from_xml <- function(input) {
